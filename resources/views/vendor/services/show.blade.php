@@ -58,12 +58,17 @@
                                     <td>{{ $x->service_name }}</td>
                                     <td>{{ $x->description }}</td>
                                     <td>
+                                        <form method="GET" action="{{ route('services.destroy', $x->id) }}">
                                         <a href="{{ url(('edit/services/' . $x->id)) }}" class="btn btn-sm btn-info">
                                             <i class="las la-pen"></i>
                                         </a>
-                                        <a href="{{ url(('delete/services/' . $x->id)) }}"
-                                           class="btn btn-sm btn-danger">
-                                            <i class="las la-trash"></i>
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <a
+                                                class="btn btn-sm btn-danger show_confirm">
+                                                <i class="las la-trash"></i>
+                                            </a>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -86,4 +91,26 @@
     <script src="{{URL::asset('assets/js/check-all-mail.js')}}"></script>
     <!--Internal Apexchart js-->
     <script src="{{URL::asset('assets/js/apexcharts.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $('.show_confirm').click(function(event) {
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: `هل أنت متأكد أنك تريد حذف هذا السجل؟`,
+                text: "إذا قمت بحذف هذا ، فسيختفي إلى الأبد.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+    </script>
 @endsection

@@ -28,10 +28,16 @@
                         <div class="form-group">
                             <input type="text" class="form-control" id="service_name" name="service_name"
                                    placeholder="إسم الميزة الجديدة">
+                            @error('service_name')
+                            <div class="alert-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="description" name="description"
                                    placeholder="وصف الميزة الجديدة">
+                            @error('description')
+                            <div class="alert-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group mb-0 mt-3 justify-content-end">
                             <div>

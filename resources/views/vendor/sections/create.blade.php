@@ -76,9 +76,34 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <p><strong>العنوان على الخريطة :</strong></p>
-                            <input type="text" class="form-control" id="address" name="address"
-                                   placeholder="العنوان على الخريطة">
+                            <p><strong>المدينة:</strong></p>
+                            <div class="form-group">
+                                <select class="form-control select2-no-search" id="address" name="address">
+                                    <option label="حدد المدينة التي يتواجد فيها القسم"
+                                            @if(old('address') == 1) selected @endif>
+                                    </option>
+                                    <option value="غزة">
+                                        غزة
+                                    </option>
+                                    <option value="جباليا">
+                                        جباليا
+                                    </option>
+                                    <option value="خانيونس">
+                                        خانيونس
+                                    </option>
+                                    <option value="رفح">
+                                        رفح
+                                    </option>
+                                    <option value="دير البلح">
+                                        دير البلح
+                                    </option>
+                                    <option value="بيت لاهيا">
+                                        بيت لاهيا
+                                    </option>
+                                    <option value="بيت حانون">
+                                        بيت حانون
+                                    </option>
+                                </select>
                             @error('address')
                             <div class="alert-danger">{{$message}}</div>
                             @enderror

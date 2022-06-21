@@ -90,7 +90,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('store/services/{id}', [ServicesController::class, 'store']);
         Route::get('edit/services/{id}', [ServicesController::class, 'edit']);
         Route::post('update/services/{id}', [ServicesController::class, 'update']);
-        Route::get('delete/services/{id}', [ServicesController::class, 'destroy']);
+        Route::get('delete/services/{id}', [ServicesController::class, 'destroy'])->name('services.destroy');
     });
 
     Route::middleware(['permission:الملاحظات'])->group(function () {

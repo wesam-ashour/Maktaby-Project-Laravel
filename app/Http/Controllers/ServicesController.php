@@ -45,6 +45,11 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'description' => ['required', 'string', 'max:255'],
+            'service_name' => ['required', 'string', 'max:20'],
+            ]);
+
         $input = $request->all();
         $input['users_id'] = Auth::user()->id;
         Services::create($input);
@@ -86,6 +91,10 @@ class ServicesController extends Controller
      */
     public function update(Request $request, Services $services,$id)
     {
+        $request->validate([
+            'description' => ['required', 'string', 'max:255'],
+            'service_name' => ['required', 'string', 'max:20'],
+        ]);
         $input = $request->all();
         $input['users_id'] = Auth::user()->id;
         Services::find($id)->update($input);

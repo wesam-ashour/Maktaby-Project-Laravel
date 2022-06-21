@@ -74,10 +74,31 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <p><strong>العنوان على الخريطة :</strong></p>
-                            <input type="text" class="form-control" id="address" name="address"
-                                   placeholder="العنوان على الخريطة"
-                                   value="{{ $sections->address ? : old('address') }}">
+                            <p><strong>المدينة:</strong></p>
+                            <select class="form-control select2-no-search" id="address" name="address">
+                                <option value="غزة" {{$sections->address == "غزة" ? 'selected' : ''}}>
+                                    غزة
+                                </option>
+                                <option value="جباليا" {{$sections->address == "جباليا" ? 'selected' : ''}}>
+                                    جباليا
+                                </option>
+                                <option value="خانيونس" {{$sections->address == "خانيونس" ? 'selected' : ''}}>
+                                    خانيونس
+                                </option>
+                                <option
+                                    value="رفح" {{$sections->address == "رفح" ? 'selected' : ''}}>
+                                    رفح
+                                </option>
+                                <option value="دير البلح" {{$sections->address == "دير البلح" ? 'selected' : ''}}>
+                                    دير البلح
+                                </option>
+                                <option value="بيت لاهيا" {{$sections->address == "بيت لاهيا" ? 'selected' : ''}}>
+                                    بيت لاهيا
+                                </option>
+                                <option value="بيت حانون" {{$sections->address == "بيت حانون" ? 'selected' : ''}}>
+                                    بيت حانون
+                                </option>
+                            </select>
                             @error('address')
                             <div class="alert-danger">{{$message}}</div>
                             @enderror
