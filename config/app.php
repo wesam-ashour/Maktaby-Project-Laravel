@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -198,6 +199,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
 ];

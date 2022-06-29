@@ -105,10 +105,10 @@
                                                 <label>تأكيد كلمة المرور</label>
                                                 <div class="form-group">
                                                     <input id="password" type="password" class="form-control" name="password_confirmation">
+                                                    @error('password')
+                                                    <div class="alert-danger">{{$message}}</div>
+                                                    @enderror
                                                 </div>
-                                                @error('password')
-                                                <div class="alert-danger">{{$message}}</div>
-                                                @enderror
                                                 <button class="btn btn-main-primary btn-block ">إنشاء الحساب</button>
                                             </form>
                                             <div class="main-signup-footer mt-2">

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+@include('sweetalert::alert')
 <!-- Contenedor Header -->
 <header id="linkHome">
     <nav id="navFixed" class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-10px">
@@ -81,42 +81,42 @@
             <div class="cardFeatures">
                 <h4>مكاتب شركات</h4>
                 <p>مساحة مكتبية مفروشة مع وسائل الراحة الخاصة المتاحة غالباً ما تكون مناسبة عدد من 10-30 شخص</p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
 
             <div class="cardFeatures">
 
                 <h4>مكاتب مشتركة</h4>
                 <p>عبارة عن مكتب شخصي في غرفة مشتركة فيها العديدة من الأشخاص</p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
 
             <div class="cardFeatures">
 
                 <h4>مكاتب فردية</h4>
                 <p>مكاتب شخصية بغرف خاصة غير مشتركة مناسبة لأصحاب العمل الحر ومفضلي الخصوصية والإستقلال </p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
 
             <div class="cardFeatures">
 
                 <h4>غرف إجتماعات</h4>
                 <p>غرف تحتوي على شاشات عرض للإجتماعات على الإنترنت</p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
 
             <div class="cardFeatures">
 
                 <h4>قاعات تدريبية</h4>
                 <p>قاعات تدريبية تحتوي على كامل الميزات اللازمة لإحياء الدورات التدريبية</p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
 
             <div class="cardFeatures">
 
                 <h4>مكاتب طابق كامل</h4>
                 <p>مكاتب مفروشة بالكامل في طابق خاص، عادة ما تكون مناسبة للشركات التي تحتوي على أكثر من 40 موظف</p>
-                <a href="#">عرض الأماكن المتاحة</a>
+                <a href="{{ url('/workspaces') }}">عرض الأماكن المتاحة</a>
             </div>
         </div>
 
@@ -198,7 +198,6 @@
                 <p class="text-right">تم إنشاء هذه المنصة لمساعدة أصحاب الشركات المالكة لمساحات العمل أن تعرض
                     المساحات المتاحة للتأجير في بيئة عؤض مثالية تجمع بين أصحاب الشركات والأشخاص المهتمين بإستئجار
                     مساحات العمل </p>
-                <a class="botonGetStarted " href="#">تعرف على المزيد</a>
             </article>
         </div>
 
@@ -220,16 +219,16 @@
                     بطريقة منظمة </p>
 
                 <ul>
-                    <li>التسجيل في منصة مكتبي عن طريقة إدخال البيانات من <a href="#">هنا</a>
+                    <li>التسجيل في منصة مكتبي عن طريقة إدخال البيانات
                         <span class="icon-check"></span>
                     </li>
-                    <li>تسديد رسوم الإشتراك السنوي في المنصة ، للمزيد من <a href="#">هنا</a>
+                    <li>تسديد رسوم الإشتراك السنوي في المنصة
                         <span class="icon-check"></span>
                     </li>
-                    <li>التسجيل في منصة مكتبي عن طريقة إدخال البيانات من <a href="#">هنا</a>
+                    <li>التسجيل في منصة مكتبي عن طريقة إدخال البيانات
                         <span class="icon-check"></span>
                     </li>
-                    <li>تسديد رسوم الإشتراك السنوي في المنصة ، للمزيد من <a href="#">هنا</a>
+                    <li>تسديد رسوم الإشتراك السنوي في المنصة
                         <span class="icon-check"></span>
                     </li>
                 </ul>
@@ -247,26 +246,35 @@
             </div>
         @endif
         <div class="container contacto ">
-            <form id="miForm" method="POST" action="{{ route('feedback.store') }}">
+            <form id="miForm" method="POST" action="{{ route('feedback.store') }}#linkContacto">
                 @csrf
                 <div class="form-group text-right">
                     <label for="inputEmail"><b>الإسم كاملاً</b></label>
                     <input type="text" class="form-control text-right" id="feedback_sender_name"
                            name="feedback_sender_name"
-                           placeholder="... الإسم كاملاً" required>
+                           placeholder="... الإسم كاملاً" >
+                    @error('feedback_sender_name')
+                    <div class="alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
                 <div class="form-group text-right">
                     <label for="inputEmail"><b>البريد الإلكتروني</b></label>
                     <input type="email" class="form-control text-right" id="feedback_sender_email"
                            name="feedback_sender_email"
-                           placeholder="... البريد الإلكتروني" required>
+                           placeholder="... البريد الإلكتروني" >
+                    @error('feedback_sender_email')
+                    <div class="alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group text-right">
                     <label for="message"><b>الرسالة</b></label>
                     <textarea class="form-control text-right" rows="5" id="description" name="description"
                               placeholder="... الرسالة"
-                              required></textarea>
+                              ></textarea>
+                    @error('description')
+                    <div class="alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
 
                 <button type="submit" class="botonEnviarMensaje">إرسال</button>

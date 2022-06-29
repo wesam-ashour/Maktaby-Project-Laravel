@@ -24,10 +24,11 @@
                                             <form method="POST" action="{{ route('password.email') }}">
                                                 @csrf
                                                 @if (session('status'))
-                                                    <div class="mb-4 font-medium text-sm text-green-600">
-                                                        {{ session('status') }}
-                                                    </div>
+                                                    <div class="alert alert-success">{{ session('status') }}</div>
                                                 @endif
+
+                                                <x-jet-validation-errors/>
+
                                                 <div class="form-group">
                                                     <label>البريد الإلكتروني</label> <input class="form-control"
                                                                                             placeholder="البريد الإلكتروني"

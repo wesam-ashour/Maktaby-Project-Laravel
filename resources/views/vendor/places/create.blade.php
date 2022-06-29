@@ -109,7 +109,6 @@
                             <div class="alert-danger">{{$message}}</div>
                             @enderror
                         </div>
-                        </div>
                         {{--                        <div class="form-group">--}}
                         {{--                            <input type="text" class="form-control" id="address" name="address"--}}
                         {{--                                   placeholder="العنوان على الخريطة">--}}
@@ -131,25 +130,25 @@
                                 <option label="حدد المدينة التي يتواجد فيها القسم"
                                         @if(old('city') == 1) selected @endif>
                                 </option>
-                                <option value="gaza">
+                                <option value="غزة">
                                     غزة
                                 </option>
-                                <option value="Jabalia">
+                                <option value="جباليا">
                                     جباليا
                                 </option>
-                                <option value="Khan Yunis">
+                                <option value="خانيونس">
                                     خانيونس
                                 </option>
-                                <option value="Rafah">
+                                <option value="رفح">
                                     رفح
                                 </option>
-                                <option value="Deir al-Balah">
+                                <option value="دير البلح">
                                     دير البلح
                                 </option>
-                                <option value="Beit Lahiya">
+                                <option value="بيت لاهيا">
                                     بيت لاهيا
                                 </option>
-                                <option value="Beit Hanoun">
+                                <option value="بيت حانون">
                                     بيت حانون
                                 </option>
                             </select>

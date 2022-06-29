@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use App\Models\Places;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FeedbackController extends Controller
 {
@@ -53,12 +54,18 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'feedback_sender_name'=>'required|string|max:40',
+            'feedback_sender_email'=>'required|email|max:255',
+            'description'=>'required|string|max:255',
+        ]);
         $input = $request->all();
 
         Feedback::create($input);
-
+        Alert::success('تم ارسالة الملاحظة بنجاح', 'Success Message');
 //        return view('index')->with('message', 'IT WORKS!');
-        return redirect()->back()->with('message', 'IT WORKS!');
+        return back();
+//        return redirect()->back()->with('message', 'IT WORKS!');
 
     }
 

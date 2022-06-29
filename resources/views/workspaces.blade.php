@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mt-1">
-                        <h5 class="text-right">{{$x->sections_name}} : الاسم</h5>
+                        <h5 class="text-right">{{$x->sections_name}}</h5>
 
                         <p class="text-right text-truncate para mb-0">{{$x->description}} : الوصف<br></p>
                         <div class="mt-1 mb-1 spec-1 text-right">

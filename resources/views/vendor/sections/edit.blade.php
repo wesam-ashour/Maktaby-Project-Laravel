@@ -27,8 +27,8 @@
         <div class="my-auto">
             <div class="my-auto">
                 <div class="d-flex"><h4 class="content-title mb-0 my-auto">{{Auth::user()->company_name}} /</h4><span
-                        class="text-muted mt-1 tx-13 mr-2 mb-0">الاقسام</span><span
-                        class="text-muted mt-1 tx-13 mr-2 mb-0">/ إضافة مساحة عمل</span></div>
+                        class="text-muted mt-1 tx-13 mr-2 mb-0">مساحات العمل</span><span
+                        class="text-muted mt-1 tx-13 mr-2 mb-0">/ تعديل مساحة عمل</span></div>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
             <div class="card  box-shadow-0">
 
                 <div class="card-header">
-                    <h4 class="card-title mb-1 tx-20">تعديل القسم</h4>
+                    <h4 class="card-title mb-1 tx-20">تعديل مساحة العمل</h4>
                 </div>
                 <div class="card-body pt-0">
                     <form class="form-horizontal" action="{{ url('update/sections/' . $sections->id) }}" method="post"

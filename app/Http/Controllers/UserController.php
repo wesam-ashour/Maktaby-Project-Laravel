@@ -31,11 +31,9 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $this->validate($request, [
-//            'name' => 'required',
-//            'email' => 'required|email|unique:users,email',
             'name' => ['required', 'string', 'max:40'],
             'company_name' => ['required', 'string', 'max:255'],
-            'phone' => ['required','integer', 'min:8'],
+            'phone' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'website' => ['required', 'url', 'max:255'],
             'city' => ['required','string', 'max:15'],

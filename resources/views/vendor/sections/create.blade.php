@@ -27,7 +27,7 @@
         <div class="my-auto">
             <div class="my-auto">
                 <div class="d-flex"><h4 class="content-title mb-0 my-auto">{{Auth::user()->company_name}} /</h4><span
-                        class="text-muted mt-1 tx-13 mr-2 mb-0">الاقسام</span><span
+                        class="text-muted mt-1 tx-13 mr-2 mb-0">مساحات العمل</span><span
                         class="text-muted mt-1 tx-13 mr-2 mb-0">/ إضافة مساحة عمل</span></div>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12">
             <div class="card  box-shadow-0">
                 <div class="card-header">
-                    <h4 class="card-title mb-1 tx-20">إضافة قسم جديد</h4>
+                    <h4 class="card-title mb-1 tx-20">/ إضافة مساحة عمل</h4>
                 </div>
                 <div class="card-body pt-0">
                     <form class="form-horizontal" method="POST" action="{{ url('store/sections/' . $places->id) }}"
@@ -78,32 +78,8 @@
                         <div class="form-group">
                             <p><strong>المدينة:</strong></p>
                             <div class="form-group">
-                                <select class="form-control select2-no-search" id="address" name="address">
-                                    <option label="حدد المدينة التي يتواجد فيها القسم"
-                                            @if(old('address') == 1) selected @endif>
-                                    </option>
-                                    <option value="غزة">
-                                        غزة
-                                    </option>
-                                    <option value="جباليا">
-                                        جباليا
-                                    </option>
-                                    <option value="خانيونس">
-                                        خانيونس
-                                    </option>
-                                    <option value="رفح">
-                                        رفح
-                                    </option>
-                                    <option value="دير البلح">
-                                        دير البلح
-                                    </option>
-                                    <option value="بيت لاهيا">
-                                        بيت لاهيا
-                                    </option>
-                                    <option value="بيت حانون">
-                                        بيت حانون
-                                    </option>
-                                </select>
+                                <input type="text" class="form-control" name="address" id="address"
+                                       placeholder="العنوان">
                             @error('address')
                             <div class="alert-danger">{{$message}}</div>
                             @enderror

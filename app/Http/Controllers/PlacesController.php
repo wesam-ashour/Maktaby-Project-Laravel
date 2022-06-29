@@ -118,7 +118,7 @@ class PlacesController extends Controller
         if ($request->hasFile('places_logo')) {
             $imageuploaded = request()->file('places_logo');
             $imagename = time() . '.' . $imageuploaded->getClientOriginalExtension();
-            $imagepath = public_path('/images/Places');
+            $imagepath = public_path('/images/places');
             $imageuploaded->move($imagepath, $imagename);
             $input['places_logo'] = $imagename;
         }
